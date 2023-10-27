@@ -1,0 +1,153 @@
+:root {
+    --shadow: 0 4px 10px 0 rgba(0,0,0,.14), 0 2px 5px -5px rgba(0,0,0,.4);
+    --radius: 3px;
+    --placeHolder: #b0b0b0;
+    --fontTitle1: bold 1.25rem Arial, sans-serif;
+    --fontTitle2: bold 1.10rem Arial, sans-serif;
+    --fontOrderRegular: 1.2rem Arial, sans-serif;
+    --fontOrderStrong: 1.35rem Arial, sans-serif;
+    --fontInput: 1.2rem Arial, sans-serif;
+    --fontButton: 1.2rem Arial, sans-serif;
+    --colorFocuse: #fefefe;
+    --colorText: #efefef;
+    --colorInputBg: #333333;
+    --colorFocusBg: #444444;
+    --colorBg: #1E1E1E;
+    --colorBgCard: #232323;
+    --colorTheme: #232323;
+    --colorThemeSecondary: #29B54F;
+    --colorThemeBg: #c2002f;
+    --colorHover: #C25160;
+    --colorActive: #B24150;
+    --colorBorder: #962135;
+    --colorWarning: #ff9090;
+    --colorDefMod: #0000e0;
+    --colorAddMod: #00e000;
+    --colorAdjustMod: #ff9090;
+    --colorPlaceholderOnly: #c3c3c3;
+    --colorDatalistHover: var(--catColorHover);
+    --hedBgColor: #1E1E1E;
+    --hedCartColor: #29B54F;
+    --btnColor: #efefef;
+	--catColor: #ffffff;
+	--colorOrderDetailAltRow: #777777;
+	
+	--colorBgHeader: #1E1E1E;
+	
+	
+    --darkColorText: #333333;
+    --darkColorInputBg: #ffffff;
+    --darkColorFocusBg: bisque;
+    --darkColorFocus: #000000;
+    --darkColorBg: #fefefe;
+    --darkColorBgCard: #f5f5f5;
+    --darkColorTheme: #efefef;
+    --darkColorThemeBg: #c2002f;
+    --darkColorThemeSecondary: #000050;
+    --darkColorHover: #b40000;
+    --darkColorActive: #3895D3;
+    --darkColorBorder: #cfcfcf;
+    --darkColorWarning: #ff0000;
+    --darkColorDefMod: var(--colorText);
+    --darkColorAddMod: green;
+    --darkColorAdjustMod: red;
+    --darkHedBgColor: var(--colorBg);
+    --darkHedCartColor: #000000;
+    --darkBtnColor: var(--colorTheme);
+}
+
+.header {
+    box-shadow: none !important;
+}
+
+.categoryItemsTopCat a {
+    border: none !important;
+    padding: 5px;
+}
+
+    .categoryItemsTopCat a > div {
+        padding: 0.5rem !important;
+        margin: 0px !important;
+    }
+
+.active-category {
+	     border: 2px solid #ffffff !important;
+}
+
+    .active-category > div {
+        border: 2px solid #ffffff !important;
+        border-radius: 5px !important;
+    }
+
+@media (max-width: 576px) {
+    .active-category > div {
+        border: none !important;
+    }
+	.accordion-open {
+		max-height: 2500px !important;
+		transition: max-height 0.5s ease-in !important;
+	}
+}
+.signin-welcome {
+    display: block !important;
+}
+
+.signin-store-name-nickname,
+.signin-welcome {
+    display: block !important;
+}
+
+.signin-store-name {
+    display: none !important;
+}
+
+.order-type-dialog {
+    border: var(--diBorder);
+}
+
+#dia_signin {
+    border: var(--diBorder);
+}
+
+.header .ordering-from {
+    font-size: smaller !important;
+}
+
+.city-state-zip,
+.street {
+    font-weight: bold !important;
+}
+
+.checkout-container {
+    background-color: var(--colorTheme) !important;
+}
+
+/* .checkout-header { */
+    /* background-color: #2f2f2f; */
+/* } */
+
+.modifierCheckNoImg label span:last-of-type {
+    font-size: smaller !important;
+}
+
+.modifierCheckNoImg input:nth-child(1) ~ select {
+    font-size: 1rem;
+}
+
+.categoryHeaderText {
+    font-size: 1.5rem;
+}
+
+.loyalty-points-bar-points{
+	color:var(--colorText) !important;
+}
+.loyalty-points-bar {
+	background-color: var(--colorFocusBg) !important;
+}
+@media handheld, screen and (max-width: 600px) {
+    .upsale-items {
+        max-width: unset;
+        max-height: unset !important;
+        display: block;
+    }
+}

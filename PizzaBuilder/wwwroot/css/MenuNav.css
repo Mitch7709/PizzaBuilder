@@ -1,0 +1,39 @@
+﻿.category-header {
+    grid-column: 1 / -1;
+    overflow: hidden;
+    text-align: center;
+}
+
+.category-header h1 {
+    font-size: 1.8rem;
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    text-transform: uppercase
+}
+
+.menuItem {
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color:transparent;
+    /*box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);*/
+
+}
+
+
+
+.menuItem:hover {
+    box-shadow: 0 0 20px rgb(255, 0, 0, 0.7);
+}
+
+.menuItemName {
+    font-size:1.3rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+}
+
+.menuItemDesc {
+    text-align: left; 
+}
+
