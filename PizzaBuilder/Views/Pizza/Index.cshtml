@@ -8,8 +8,8 @@
     </div>
     <div class="w-100"></div>
     <div class="col-md-4">
-        <button class="menuItem" asp-controller="Pizza" asp-action="Create">
-            <div class="row">    
+        <button class="menuItem" onclick="location.href='@Url.Action("Create", "Pizza")'">
+            <div class="row">
                 <div class="col-md-9">
                     <span class="menuItemName float-start">Build Your Own</span>
                     <p class="menuItemDesc float-start">Choose size, choice of crust style, and your favorite toppings</p>
@@ -18,7 +18,7 @@
                     <img height=70 width=70 src="~/Images/bacon.png" />
                 </div>
             </div>
-            
+
         </button>
     </div>
 </div>

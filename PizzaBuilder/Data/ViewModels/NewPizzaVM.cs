@@ -16,9 +16,8 @@ namespace PizzaBuilder.Data.ViewModels
         public double Base_Price { get; set; }
         public string Instructions { get; set; }
 
-        public int CrustID { get; set; }
-        public List<Crust> Crusts { get; set; }
-        public List<Topping> Toppings { get; set; }
+        public int CrustIds { get; set; }
+        public int ToppingIds{ get; set; }
 
 
     }

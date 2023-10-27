@@ -1,11 +1,12 @@
-﻿using PizzaBuilder.Data.Enums;
+﻿using PizzaBuilder.Data.Base;
+using PizzaBuilder.Data.Enums;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PizzaBuilder.Models
 {
-    public class Pizza
+    public class Pizza:IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -21,6 +22,6 @@ namespace PizzaBuilder.Models
         public Crust Crust { get; set; }
         public string Instructions { get; set; }
 
-        public List<ToppingsToPizza>? ToppingsToPizzas { get; set; }
+        public List<ToppingsToPizza> ToppingsToPizzas { get; set; }
     }
 }
