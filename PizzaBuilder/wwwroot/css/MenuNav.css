@@ -14,6 +14,7 @@
 
 .menuItem {
     border-radius: 3px;
+    border-color: rgb(255, 0, 0);
     overflow: hidden;
     cursor: pointer;
     background-color:transparent;
@@ -22,7 +23,7 @@
 }
 
 
-
+/* Menu Item buttons */
 .menuItem:hover {
     box-shadow: 0 0 20px rgb(255, 0, 0, 0.7);
 }
@@ -36,4 +37,5 @@
 .menuItemDesc {
     text-align: left; 
 }
+
 
