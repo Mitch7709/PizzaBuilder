@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using PizzaBuilder.Data;
 using PizzaBuilder.Models;
 using PizzaBuilder.Data.Services;
+using PizzaBuilder.Data.ViewModels;
 
 namespace PizzaBuilder.Controllers
 {
@@ -20,14 +21,32 @@ namespace PizzaBuilder.Controllers
             return View();
         }
 
+
+        //GET: Pizza/Create
         public async Task<IActionResult> Create()
         {
-            var pizzaDropdownData = await _service.GetNewPizzaDropDownValues();
+            var vm = await _service.GetNewPizzaDropDownValues();
 
-            ViewBag.CrustIds = new SelectList(pizzaDropdownData.Crusts);
-            ViewBag.ToppingIds = new SelectList(pizzaDropdownData.Toppings);
+            ViewBag.Crusts = new SelectList(vm.Crusts, "Id", "Name");
 
-            return View();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(NewPizzaVM pizza)
+        {
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                var vm = await _service.GetNewPizzaDropDownValues();
+
+                ViewBag.Crusts = new SelectList(vm.Crusts, "Id", "Name");
+
+                return View(vm);
+            }
+
+            await _service.AddNewPizza(pizza);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

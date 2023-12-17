@@ -6,6 +6,7 @@ namespace PizzaBuilder.Data.Services
 {
     public interface IPizzaService : IEntityBaseRepository<Pizza>
     {
-        Task<NewPizzaDropdownsVM> GetNewPizzaDropDownValues();
+        Task<NewPizzaVM> GetNewPizzaDropDownValues();
+        Task AddNewPizza(NewPizzaVM data);
     }
 }

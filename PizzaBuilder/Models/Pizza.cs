@@ -16,11 +16,11 @@ namespace PizzaBuilder.Models
 
         [DisplayName("Price")]
         public double Base_Price { get; set; }
-        public int CrustID { get; set; }
 
+        public int CrustID { get; set; }
         [ForeignKey("CrustID")]
         public Crust Crust { get; set; }
-        public string Instructions { get; set; }
+        public string? Instructions { get; set; }
 
         public List<ToppingsToPizza> ToppingsToPizzas { get; set; }
     }
