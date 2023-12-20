@@ -1,0 +1,53 @@
+﻿@model OrdersVM
+@using PizzaBuilder.Data.ViewModels;
+@using PizzaBuilder.Data.Enums;
+
+@{
+    ViewData["Title"] = "Review your orders";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            <h4>Review your orders</h4>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Size</th>
+                    <th scope="col">Crust</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Toppings</th>
+                    <th scope="col">Instructions</th>                    
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pizza in Model.Pizzas)
+                {
+                    <tr>
+                        <td>@Enum.GetName(typeof(PizzaSize), pizza.Size)</td>
+                        <td>@pizza.Crust.Name</td>
+                        <td>@pizza.Quantity</td>
+                        <td>$@pizza.Base_Price</td>
+                        <td>
+                            <ul>
+                                @foreach (var t in pizza.ToppingsToPizzas)
+                                {
+                                    <li>@t.Topping.Name</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>@pizza.Instructions</td>    
+                        <td>
+                            <a class="btn btn-primary" asp-controller="Pizza" asp-action="Edit" asp-route-id="@pizza.Id">Edit</a>
+                            <a class="btn btn-danger" asp-controller="Pizza" asp-action="Delete" asp-route-id="@pizza.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

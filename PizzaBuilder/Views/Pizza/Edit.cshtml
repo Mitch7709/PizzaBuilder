@@ -1,0 +1,77 @@
+﻿@model NewPizzaVM
+@using PizzaBuilder.Data.Enums
+@using PizzaBuilder.Data.ViewModels;
+
+@{
+    ViewData["Title"] = "Edit Changes";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            <h4>Edit Changes</h4>
+        </p>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="~/Images/Pizzas/build-your-own.jpg" width="100%" height="100%" alt="Build your own" />
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label asp-for="@Model.Quantity" class="control-label">Quantity:</label>
+                                <input asp-for="@Model.Quantity" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="@Model.CrustId" class="control-label">Crust:</label>
+                                <select asp-for="@Model.CrustId" class="form-control" asp-items="ViewBag.Crusts"></select>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="@Model.Size" class="control-label">Size:</label>
+                                <select asp-for="@Model.Size" class="form-control" asp-items="Html.GetEnumSelectList<PizzaSize>()"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="@Model.Instructions" class="control-label">Instructions:</label>
+                                <textarea asp-for="@Model.Instructions" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: 3em;">
+                <div class="category-header">
+                    <h1>Toppings</h1>
+                </div>
+                @for (int i = 0; i < Model.Toppings.Count; i++)
+                {
+                    <div class="col-md-2 form-group">
+                        <input type="checkbox" class="form-check-inline" asp-for="@Model.Toppings[i].IsChecked" />
+                        <label asp-for="@Model.Toppings[i].IsChecked" class="control-label">@Model.Toppings[i].Name</label>
+                        <input type="hidden" asp-for="@Model.Toppings[i].Id" />
+                        <input type="hidden" asp-for="@Model.Toppings[i].Name" />
+                        <input type="hidden" asp-for="@Model.Toppings[i].Calories" />
+                        <input type="hidden" asp-for="@Model.Toppings[i].Category" />
+                    </div>
+                }
+            </div>
+            <div class="form-group" style="padding-top:2em">
+                <input type="submit" value="Save Changes" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+</div>
+

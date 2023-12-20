@@ -4,7 +4,7 @@
     { 
         Small,
         Medium,
-        Large = 1,
+        Large,
         XLarge
     }
 }
