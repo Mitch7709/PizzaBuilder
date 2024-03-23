@@ -17,11 +17,9 @@
     border-color: rgb(255, 0, 0);
     overflow: hidden;
     cursor: pointer;
-    background-color:transparent;
+    background-color:white;
     /*box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);*/
-
 }
-
 
 /* Menu Item buttons */
 .menuItem:hover {
@@ -37,5 +35,3 @@
 .menuItemDesc {
     text-align: left; 
 }
-
-

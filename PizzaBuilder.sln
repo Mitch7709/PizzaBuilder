@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaBuilder", "PizzaBuilder\PizzaBuilder.csproj", "{80372C46-2C56-43B0-BF6A-4DE98E5347B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaBuilderTest", "PizzaBuilderTest\PizzaBuilderTest.csproj", "{ED80A7BB-C85C-49A8-A32F-4E85BD1B28C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaBuilderTest", "PizzaBuilderTest\PizzaBuilderTest.csproj", "{ED80A7BB-C85C-49A8-A32F-4E85BD1B28C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
