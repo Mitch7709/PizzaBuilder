@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaBuilder", "PizzaBuilde
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaBuilderTest", "PizzaBuilderTest\PizzaBuilderTest.csproj", "{ED80A7BB-C85C-49A8-A32F-4E85BD1B28C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaBuilder.Data", "PizzaBuilder.Data\PizzaBuilder.Data.csproj", "{4D1F099D-2DF1-419F-A193-8C98525EB02B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{ED80A7BB-C85C-49A8-A32F-4E85BD1B28C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED80A7BB-C85C-49A8-A32F-4E85BD1B28C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED80A7BB-C85C-49A8-A32F-4E85BD1B28C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D1F099D-2DF1-419F-A193-8C98525EB02B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D1F099D-2DF1-419F-A193-8C98525EB02B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D1F099D-2DF1-419F-A193-8C98525EB02B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D1F099D-2DF1-419F-A193-8C98525EB02B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
