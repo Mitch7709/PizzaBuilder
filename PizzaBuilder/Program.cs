@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PizzaBuilder.Data;
-using PizzaBuilder.Data.Services;
+using PizzaBuilder.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

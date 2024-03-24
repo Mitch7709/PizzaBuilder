@@ -2,7 +2,7 @@
 using PizzaBuilder.Data.ViewModels;
 using PizzaBuilder.Models;
 
-namespace PizzaBuilder.Data.Services
+namespace PizzaBuilder.Services
 {
     public interface IPizzaService : IEntityBaseRepository<Pizza>
     {

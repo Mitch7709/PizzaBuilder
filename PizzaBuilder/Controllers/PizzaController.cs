@@ -2,9 +2,8 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using PizzaBuilder.Data;
 using PizzaBuilder.Models;
-using PizzaBuilder.Data.Services;
 using PizzaBuilder.Data.ViewModels;
-using PizzaBuilder.Data.Enums;
+using PizzaBuilder.Services;
 
 namespace PizzaBuilder.Controllers
 {
@@ -28,6 +27,7 @@ namespace PizzaBuilder.Controllers
             var vm = await _service.GetNewPizzaValues();
 
             ViewBag.Crusts = new SelectList(vm.Crusts, "Id", "Name");
+            ViewBag.Sizes = new SelectList(vm.Size, "Id", "Name");
 
             return View(vm);
         }
@@ -40,6 +40,7 @@ namespace PizzaBuilder.Controllers
                 var vm = await _service.GetNewPizzaValues();
 
                 ViewBag.Crusts = new SelectList(vm.Crusts, "Id", "Name");
+                ViewBag.Sizes = new SelectList(vm.Size, "Id", "Name");
 
                 return View(vm);
             }
@@ -67,7 +68,7 @@ namespace PizzaBuilder.Controllers
 
             response.Id = pizzaDetails.Id;
             response.CrustId = pizzaDetails.CrustID;
-            response.Size = pizzaDetails.Size;
+            //response.Size = pizzaDetails.Size;
             response.Quantity = pizzaDetails.Quantity;
             response.Base_Price = pizzaDetails.Base_Price;
             response.Instructions = pizzaDetails.Instructions;

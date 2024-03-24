@@ -39,6 +39,32 @@ namespace PizzaBuilder.Data
                     });
                     context.SaveChanges();
                 }
+                //Sizes
+                if (!context.Sizes.Any())
+                {
+                    context.Sizes.AddRange(new List<Sizes>()
+                    {
+                        new Sizes()
+                        {
+                            Name = "Small",
+                            Calories = 50,
+                            Price = .70
+                        },
+                        new Sizes()
+                        {
+                            Name = "Medium",
+                            Calories = 75,
+                            Price = 1.02
+                        },
+                        new Sizes()
+                        {
+                            Name = "Large",
+                            Calories = 145,
+                            Price = 4.35
+                        }
+                    });
+                    context.SaveChanges();
+                }
                 //Toppings
                 if (!context.Toppings.Any())
                 {

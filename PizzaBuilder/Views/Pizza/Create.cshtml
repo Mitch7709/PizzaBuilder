@@ -1,5 +1,4 @@
 ﻿@model NewPizzaVM
-@using PizzaBuilder.Data.Enums
 @using PizzaBuilder.Data.ViewModels;
 
 @{
@@ -36,7 +35,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="@Model.Size" class="control-label">Size:</label>
-                                <select asp-for="@Model.Size" class="form-control" asp-items="Html.GetEnumSelectList<PizzaSize>()"></select>
+                                <select asp-for="@Model.Size" class="form-control" asp-items="ViewBag.Sizes"></select>
                             </div>
                         </div>
                         <div class="col-md-12">

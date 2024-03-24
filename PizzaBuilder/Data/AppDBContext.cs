@@ -25,6 +25,7 @@ namespace PizzaBuilder.Data
         }
 
         public DbSet<Crust> Crusts { get; set; }
+        public DbSet<Sizes> Sizes { get; set; }
         public DbSet<Topping> Toppings { get; set; }
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<ToppingsToPizza> ToppingsToPizzas { get;set; }

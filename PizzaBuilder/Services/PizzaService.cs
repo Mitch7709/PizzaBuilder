@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using PizzaBuilder.Data;
 using PizzaBuilder.Data.Base;
 using PizzaBuilder.Data.ViewModels;
 using PizzaBuilder.Models;
 using System.Net.WebSockets;
 
-namespace PizzaBuilder.Data.Services
+namespace PizzaBuilder.Services
 {
     public class PizzaService : EntityBaseRepository<Pizza>, IPizzaService
     {
@@ -21,7 +22,7 @@ namespace PizzaBuilder.Data.Services
         {
             var newPizza = new Pizza()
             {
-                Size = data.Size,
+                //Size = data.Size,
                 CrustID = data.CrustId,
                 Quantity = data.Quantity,
                 Base_Price = data.Base_Price,
@@ -44,7 +45,7 @@ namespace PizzaBuilder.Data.Services
                     };
                     await _context.ToppingsToPizzas.AddAsync(newPizzaTopping);
                 }
-                
+
             }
             await _context.SaveChangesAsync();
 
@@ -76,7 +77,7 @@ namespace PizzaBuilder.Data.Services
             orders.Pizzas = await _context.Pizzas
                 .Include(c => c.Crust)
                 .Include(tp => tp.ToppingsToPizzas).ThenInclude(t => t.Topping)
-                .ToListAsync();                       
+                .ToListAsync();
 
             return orders;
         }
@@ -87,7 +88,7 @@ namespace PizzaBuilder.Data.Services
 
             if (dbPizza != null)
             {
-                dbPizza.Size = data.Size;
+                //dbPizza.Size = data.Size;
                 dbPizza.Quantity = data.Quantity;
                 dbPizza.CrustID = dbPizza.CrustID;
                 dbPizza.Base_Price = data.Base_Price;

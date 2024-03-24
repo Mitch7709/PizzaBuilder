@@ -1,6 +1,5 @@
 ﻿@model OrdersVM
 @using PizzaBuilder.Data.ViewModels;
-@using PizzaBuilder.Data.Enums;
 
 @{
     ViewData["Title"] = "Review your orders";
@@ -29,7 +28,7 @@ ViewBag.Current = "Orders";
                 @foreach (var pizza in Model.Pizzas)
                 {
                     <tr>
-                        <td>@Enum.GetName(typeof(PizzaSize), pizza.Size)</td>
+                        @* <td>@Enum.GetName(typeof(PizzaSize), pizza.Size)</td> *@
                         <td>@pizza.Crust.Name</td>
                         <td>@pizza.Quantity</td>
                         <td>$@pizza.Base_Price</td>

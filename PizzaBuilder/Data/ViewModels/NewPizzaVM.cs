@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using PizzaBuilder.Data.Enums;
 using PizzaBuilder.Models;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,8 +8,8 @@ namespace PizzaBuilder.Data.ViewModels
     {
         public int Id { get; set; }
 
-        [Required]
-        public PizzaSize Size { get; set; }
+        public int SizeId { get; set; }
+        public List<Sizes> Size { get; set; }
 
         [Required]
         public int Quantity { get; set; }
@@ -24,7 +23,7 @@ namespace PizzaBuilder.Data.ViewModels
 
         public NewPizzaVM()
         {
-            Size = PizzaSize.Large;
+            Size = new List<Sizes>();
             Quantity = 1;
             Base_Price = 12.99;
             Crusts = new List<Crust>();

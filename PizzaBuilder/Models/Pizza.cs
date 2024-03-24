@@ -1,5 +1,4 @@
 ﻿using PizzaBuilder.Data.Base;
-using PizzaBuilder.Data.Enums;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,7 +10,9 @@ namespace PizzaBuilder.Models
         [Key]
         public int Id { get; set; }
 
-        public PizzaSize Size { get; set; }
+        public int SizeID { get; set; }
+        [ForeignKey("SizeID")]
+        public Sizes Size { get; set; }
         public int Quantity { get; set; }
 
         [DisplayName("Price")]
