@@ -24,9 +24,9 @@ namespace PizzaBuilder.Controllers
         //GET: Pizza/Create
         public async Task<IActionResult> Create()
         {
-            var vm = await _service.GetNewPizzaValues();
+            var vm = await _service.GetPizzaMenu();
 
-            ViewBag.Crusts = new SelectList(vm.Crusts, "Id", "Name");
+            ViewBag.Crusts = new SelectList(vm.Crusts, "Id", "Name", vm.Crusts.Last().Name);
             ViewBag.Sizes = new SelectList(vm.Size, "Id", "Name");
 
             return View(vm);
@@ -47,6 +47,13 @@ namespace PizzaBuilder.Controllers
 
             await _service.AddNewPizza(pizza);
             return RedirectToAction(nameof(Orders));
+        }
+
+        [HttpGet]
+        public int GetTemplateOptions(int templateId)
+        {
+            Console.WriteLine(templateId);
+            return templateId;
         }
 
         //GET: Pizza/Orders

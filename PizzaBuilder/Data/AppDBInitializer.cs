@@ -146,6 +146,72 @@ namespace PizzaBuilder.Data
                     });
                     context.SaveChanges();
                 }
+                //Templates
+                if (!context.PizzaTemplates.Any())
+                {
+                    context.PizzaTemplates.AddRange(new List<PizzaTemplate>()
+                    {
+                        new PizzaTemplate()
+                        {
+                            Name = "Create your own",
+                            Description = "Start from scratch and create your own pizza!",
+                            TemplateToppings = new List<TemplateToppings>()
+                        },
+                        new PizzaTemplate()
+                        {
+                            Name = "Meat Lovers",
+                            Description = "Pepperoni, ham, Italian sausage, and bacon!",
+                            TemplateToppings = new List<TemplateToppings>()
+                            {
+                                new TemplateToppings()
+                                {
+                                    ToppingID = 1
+                                },
+                                new TemplateToppings()
+                                {
+                                    ToppingID = 2
+                                },
+                                new TemplateToppings()
+                                {
+                                    ToppingID = 3
+                                },
+                                new TemplateToppings()
+                                {
+                                    ToppingID = 4
+                                }
+                            }
+                        },
+                        new PizzaTemplate()
+                        {
+                            Name = "Supreme",
+                            Description = "Pepperoni, Italian sausage, mushrooms, green peppers, and onions!",
+                            TemplateToppings = new List<TemplateToppings>()
+                            {
+                                new TemplateToppings()
+                                {
+                                    ToppingID = 1
+                                },
+                                new TemplateToppings()
+                                {
+                                    ToppingID = 3
+                                },
+                                new TemplateToppings()
+                                {
+                                    ToppingID = 6
+                                },
+                                new TemplateToppings()
+                                {
+                                    ToppingID = 7
+                                },
+                                new TemplateToppings()
+                                {
+                                    ToppingID = 8
+                                }
+                            }
+                        }
+                    });
+                    context.SaveChanges();
+                }
             }
         }
     }

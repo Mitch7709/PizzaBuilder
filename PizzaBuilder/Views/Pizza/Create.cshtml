@@ -1,11 +1,38 @@
-﻿@model NewPizzaVM
+﻿@model CreatePizzaVM
 @using PizzaBuilder.Data.ViewModels;
 
 @{
     ViewData["Title"] = "Customize your pizza";    
 }
 
-<div class="row">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Start with a template</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        @foreach (var template in Model.Templates)
+        {            
+            <div class="col-md-4">
+                <button class="menuItem">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span class="menuItemName float-start">@template.Name</span>
+                            <p class="menuItemDesc float-start">@template.Description</p>
+                        </div>
+                        <div class="col-md-4 align-items-center justify-content-center" style="display:flex; padding-right:8px;">
+                            <img src="~/Images/Pizzas/build-your-own.jpg" width="100%" height="105%" alt="Build your own" />
+                        </div>
+                    </div>
+                </button>
+            </div>            
+        }
+    </div>
+</div>
+
+
+<div class="row" id="">
     <div class="col-md-12">
         <p>
             <h4>Customize your pizza</h4>
@@ -71,7 +98,9 @@
     </div>
 </div>
 
-<div class="row">
-
-</div>
+@section Scripts {
+    <script>
+        
+    </script>
+}
 

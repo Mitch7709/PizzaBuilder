@@ -70,6 +70,28 @@ namespace PizzaBuilder.Services
             return response;
         }
 
+        public async Task<CreatePizzaVM> GetPizzaMenu()
+        {
+            var response = new CreatePizzaVM();
+            response.Crusts = await _context.Crusts.OrderBy(n => n.Id).ToListAsync();
+            response.Toppings = await _context.Toppings.OrderBy(n => n.Id).ToListAsync();
+            response.Size = await _context.Sizes.OrderBy(n => n.Id).ToListAsync();
+            response.Templates = await _context.PizzaTemplates.OrderBy(n => n.Id).ToListAsync();
+
+            return response;
+        }
+
+        public async Task<CreatePizzaVM> GetTemplateOptions()
+        {
+            var response = new CreatePizzaVM();
+            response.Crusts = await _context.Crusts.OrderBy(n => n.Id).ToListAsync();
+            response.Toppings = await _context.Toppings.OrderBy(n => n.Id).ToListAsync();
+            response.Size = await _context.Sizes.OrderBy(n => n.Id).ToListAsync();
+            response.Templates = await _context.PizzaTemplates.OrderBy(n => n.Id).ToListAsync();
+
+            return response;
+        }
+
         public async Task<OrdersVM> GetPizzaOrders()
         {
             var orders = new OrdersVM();

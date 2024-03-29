@@ -16,5 +16,6 @@ namespace PizzaBuilder.Models
         [NotMapped]
         public bool IsChecked { get; set; } = false;
         public List<ToppingsToPizza>? ToppingsToPizzas { get; set; }
+        public List<TemplateToppings>? TemplateToppings { get; set; }
     }
 }

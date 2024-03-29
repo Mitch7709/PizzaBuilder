@@ -49,9 +49,9 @@
 </div> *@
 
 <section style="height: calc(100vh - 128px)">
-    <div class="container">
-        <div class="row ">
-            <div class="col-sm-12 text-center align-self-center">
+    <div class="container" style="height:100%">
+        <div class="row align-items-center">
+            <div class="col-sm-12 text-center">
                 <div>
                     <h4>
                     <span class="title">The Builder for all the Pizzas</span>
@@ -61,6 +61,9 @@
                     <h1>
                         <span class="subTitle">Make your pizza today!</span>
                     </h1>
+                </div>
+                <div>
+                    <a class="btn btn-success text-white" asp-controller="Pizza" asp-action="Create">Make an Order</a>
                 </div>
             </div>
         </div>

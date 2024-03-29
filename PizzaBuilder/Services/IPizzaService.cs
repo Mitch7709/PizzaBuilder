@@ -7,6 +7,7 @@ namespace PizzaBuilder.Services
     public interface IPizzaService : IEntityBaseRepository<Pizza>
     {
         Task<NewPizzaVM> GetNewPizzaValues();
+        Task<CreatePizzaVM> GetPizzaMenu();
         Task AddNewPizza(NewPizzaVM data);
         Task<OrdersVM> GetPizzaOrders();
 
