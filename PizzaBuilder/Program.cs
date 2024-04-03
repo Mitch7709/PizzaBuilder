@@ -11,7 +11,7 @@ builder.Services.AddDbContext<AppDBContext>(options => options.UseSqlServer(buil
 builder.Services.AddScoped<IPizzaService, PizzaService>();
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 var app = builder.Build();
 

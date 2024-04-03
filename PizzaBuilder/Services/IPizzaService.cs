@@ -8,6 +8,7 @@ namespace PizzaBuilder.Services
     {
         Task<NewPizzaVM> GetNewPizzaValues();
         Task<CreatePizzaVM> GetPizzaMenu();
+        Task<List<Topping>> GetTemplateOptions(int tempId);
         Task AddNewPizza(NewPizzaVM data);
         Task<OrdersVM> GetPizzaOrders();
 

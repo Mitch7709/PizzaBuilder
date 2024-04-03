@@ -50,10 +50,11 @@ namespace PizzaBuilder.Controllers
         }
 
         [HttpGet]
-        public int GetTemplateOptions(int templateId)
+        public async Task<ActionResult> GetTemplateOptions(int templateId)
         {
-            Console.WriteLine(templateId);
-            return templateId;
+            var toppList = await _service.GetTemplateOptions(templateId);
+
+            return Json(toppList);
         }
 
         //GET: Pizza/Orders

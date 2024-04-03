@@ -81,16 +81,23 @@ namespace PizzaBuilder.Services
             return response;
         }
 
-        public async Task<CreatePizzaVM> GetTemplateOptions()
+        public async Task<List<Topping>> GetTemplateOptions(int tempId)
         {
-            var response = new CreatePizzaVM();
-            response.Crusts = await _context.Crusts.OrderBy(n => n.Id).ToListAsync();
-            response.Toppings = await _context.Toppings.OrderBy(n => n.Id).ToListAsync();
-            response.Size = await _context.Sizes.OrderBy(n => n.Id).ToListAsync();
-            response.Templates = await _context.PizzaTemplates.OrderBy(n => n.Id).ToListAsync();
+            var tempToppings = await _context.TemplateToppings.Where(n => n.TemplateID == tempId).ToListAsync();
+            var toppings = await _context.Toppings.ToListAsync();
 
-            return response;
+            var returnToppings = new List<Topping>();
+            foreach (var t in tempToppings)
+            {
+                var topping = toppings.Where(n => n.Id == t.ToppingID).FirstOrDefault();
+                topping.IsChecked = true;
+                returnToppings.Add(topping);
+            }
+
+            return returnToppings;
         }
+
+
 
         public async Task<OrdersVM> GetPizzaOrders()
         {

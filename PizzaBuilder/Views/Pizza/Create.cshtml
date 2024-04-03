@@ -15,7 +15,7 @@
         @foreach (var template in Model.Templates)
         {            
             <div class="col-md-4">
-                <button class="menuItem">
+                <button class="menuItem" data-tempId="@template.Id">
                     <div class="row">
                         <div class="col-md-8">
                             <span class="menuItemName float-start">@template.Name</span>
@@ -100,7 +100,39 @@
 
 @section Scripts {
     <script>
-        
+        $(document).ready(function () {
+            $(".menuItem").click(function () {
+                var tempId = $(this).data("tempid");
+                
+                var sendData = {
+                    "templateId": tempId,
+                };
+
+                $.ajax({
+                    url: "/Pizza/GetTemplateOptions",
+                    type: "GET",
+                    data: sendData,
+                    dataType: "json",
+                    success: function (data) {
+                        //Clear all toppings
+                        $("input[type=checkbox]").prop("checked", false);
+
+
+                        for (const top in data) {
+                            var id = data[top].id;
+                            console.log(id);
+
+                            var toppingInput = $("#Toppings_" + id + "__IsChecked");
+                            console.log(toppingInput);
+                            toppingInput.prop("checked", true);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });
     </script>
 }
 
