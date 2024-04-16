@@ -28,7 +28,7 @@ ViewBag.Current = "Orders";
                 @foreach (var pizza in Model.Pizzas)
                 {
                     <tr>
-                        @* <td>@Enum.GetName(typeof(PizzaSize), pizza.Size)</td> *@
+                        <td>@pizza.Size.Name</td>
                         <td>@pizza.Crust.Name</td>
                         <td>@pizza.Quantity</td>
                         <td>$@pizza.Base_Price</td>

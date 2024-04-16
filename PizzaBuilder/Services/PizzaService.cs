@@ -18,11 +18,12 @@ namespace PizzaBuilder.Services
             _context = context;
         }
 
-        public async Task AddNewPizza(NewPizzaVM data)
+        #region Create
+        public async Task AddNewPizza(CreatePizzaVM data)
         {
             var newPizza = new Pizza()
             {
-                //Size = data.Size,
+                SizeID = data.SizeId,
                 CrustID = data.CrustId,
                 Quantity = data.Quantity,
                 Base_Price = data.Base_Price,
@@ -51,20 +52,11 @@ namespace PizzaBuilder.Services
 
         }
 
-        public async Task<Pizza> GetPizzaById(int id)
+        public async Task<CreatePizzaVM> GetNewPizzaValues()
         {
-            var pizza = await _context.Pizzas
-                .Include(c => c.Crust)
-                .Include(tp => tp.ToppingsToPizzas).ThenInclude(t => t.Topping)
-                .FirstOrDefaultAsync(n => n.Id == id);
-
-            return pizza;
-        }
-
-        public async Task<NewPizzaVM> GetNewPizzaValues()
-        {
-            var response = new NewPizzaVM();
+            var response = new CreatePizzaVM();
             response.Crusts = await _context.Crusts.OrderBy(n => n.Id).ToListAsync();
+            response.Size = await _context.Sizes.OrderBy(n => n.Id).ToListAsync();
             response.Toppings = await _context.Toppings.OrderBy(n => n.Id).ToListAsync();
 
             return response;
@@ -97,7 +89,19 @@ namespace PizzaBuilder.Services
             return returnToppings;
         }
 
+        #endregion
 
+        #region Orders
+
+        public async Task<Pizza> GetPizzaById(int id)
+        {
+            var pizza = await _context.Pizzas
+                .Include(c => c.Crust)
+                .Include(tp => tp.ToppingsToPizzas).ThenInclude(t => t.Topping)
+                .FirstOrDefaultAsync(n => n.Id == id);
+
+            return pizza;
+        }
 
         public async Task<OrdersVM> GetPizzaOrders()
         {
@@ -105,13 +109,17 @@ namespace PizzaBuilder.Services
 
             orders.Pizzas = await _context.Pizzas
                 .Include(c => c.Crust)
+                .Include(s => s.Size)
                 .Include(tp => tp.ToppingsToPizzas).ThenInclude(t => t.Topping)
                 .ToListAsync();
 
             return orders;
         }
 
-        public async Task EditPizza(NewPizzaVM data)
+        #endregion
+
+
+        public async Task EditPizza(CreatePizzaVM data)
         {
             var dbPizza = await _context.Pizzas.FirstOrDefaultAsync(n => n.Id == data.Id);
 

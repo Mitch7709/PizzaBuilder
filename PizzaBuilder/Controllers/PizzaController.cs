@@ -33,7 +33,7 @@ namespace PizzaBuilder.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(NewPizzaVM pizza)
+        public async Task<IActionResult> Create(CreatePizzaVM pizza)
         {
             if (!ModelState.IsValid)
             {
@@ -73,10 +73,11 @@ namespace PizzaBuilder.Controllers
 
             var response = await _service.GetNewPizzaValues();
             ViewBag.Crusts = new SelectList(response.Crusts, "Id", "Name");
+            ViewBag.Sizes = new SelectList(response.Size, "Id", "Name");
 
             response.Id = pizzaDetails.Id;
             response.CrustId = pizzaDetails.CrustID;
-            //response.Size = pizzaDetails.Size;
+            response.SizeId = pizzaDetails.SizeID;
             response.Quantity = pizzaDetails.Quantity;
             response.Base_Price = pizzaDetails.Base_Price;
             response.Instructions = pizzaDetails.Instructions;
@@ -101,7 +102,7 @@ namespace PizzaBuilder.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(NewPizzaVM pizza)
+        public async Task<IActionResult> Edit(CreatePizzaVM pizza)
         {
             if (!ModelState.IsValid)
             {

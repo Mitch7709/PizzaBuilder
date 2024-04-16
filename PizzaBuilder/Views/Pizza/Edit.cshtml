@@ -1,14 +1,14 @@
-﻿@model NewPizzaVM
+﻿@model CreatePizzaVM
 @using PizzaBuilder.Data.ViewModels;
 
 @{
     ViewData["Title"] = "Edit Changes";
 }
 
-<div class="row">
+<div class="row" id="">
     <div class="col-md-12">
         <p>
-            <h4>Edit Changes</h4>
+            <h4>Make changes to your pizza</h4>
         </p>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -34,8 +34,8 @@
                         <div class="w-100"></div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="@Model.Size" class="control-label">Size:</label>
-                                <select asp-for="@Model.Size" class="form-control" asp-items="ViewBag.Sizes"></select>
+                                <label asp-for="@Model.SizeId" class="control-label">Size:</label>
+                                <select asp-for="@Model.SizeId" class="form-control" asp-items="ViewBag.Sizes"></select>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -69,8 +69,5 @@
             </div>
         </form>
     </div>
-</div>
-
-<div class="row">
 </div>
 

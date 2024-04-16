@@ -61,8 +61,8 @@
                         <div class="w-100"></div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="@Model.Size" class="control-label">Size:</label>
-                                <select asp-for="@Model.Size" class="form-control" asp-items="ViewBag.Sizes"></select>
+                                <label asp-for="@Model.SizeId" class="control-label">Size:</label>
+                                <select asp-for="@Model.SizeId" class="form-control" asp-items="ViewBag.Sizes"></select>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -120,10 +120,9 @@
 
                         for (const top in data) {
                             var id = data[top].id;
-                            console.log(id);
+                            id = id - 1;
 
                             var toppingInput = $("#Toppings_" + id + "__IsChecked");
-                            console.log(toppingInput);
                             toppingInput.prop("checked", true);
                         }
                     },

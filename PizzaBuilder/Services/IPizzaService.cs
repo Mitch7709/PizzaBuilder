@@ -6,14 +6,14 @@ namespace PizzaBuilder.Services
 {
     public interface IPizzaService : IEntityBaseRepository<Pizza>
     {
-        Task<NewPizzaVM> GetNewPizzaValues();
+        Task<CreatePizzaVM> GetNewPizzaValues();
         Task<CreatePizzaVM> GetPizzaMenu();
         Task<List<Topping>> GetTemplateOptions(int tempId);
-        Task AddNewPizza(NewPizzaVM data);
+        Task AddNewPizza(CreatePizzaVM data);
         Task<OrdersVM> GetPizzaOrders();
 
         Task<Pizza> GetPizzaById(int id);
-        Task EditPizza(NewPizzaVM data);
+        Task EditPizza(CreatePizzaVM data);
 
         Task DeletePizza(int id);
     }
