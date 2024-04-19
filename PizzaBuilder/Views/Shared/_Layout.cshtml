@@ -44,10 +44,20 @@
                         <li class="nav-item px-3 rounded-pill">
                             <a class="nav-link @(ViewBag.Current == "Orders" ? "active" : "") text-light" asp-area="" asp-controller="Pizza" asp-action="Orders">Orders</a>
                         </li>
-                        <li class="nav-item px-3 rounded-pill">
-                            <a class="nav-link @(ViewBag.Current == "Login" ? "active" : "") text-light" asp-area="" asp-controller="Pizza" asp-action="Login">Log in</a>
-                        </li>
+                        @if(User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item px-3 rounded-pill">
+                                <a class="nav-link @(ViewBag.Current == "Logout" ? "active" : "") text-light" asp-area="Identity" asp-page="/Account/Logout">Log out</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item px-3 rounded-pill">
+                                <a class="nav-link @(ViewBag.Current == "Login" ? "active" : "") text-light" asp-area="Identity" asp-page="/Account/Login">Log in</a>
+                            </li>
+                        }
                     </ul>
+                    @* <partial name="_LoginPartial" /> *@
                 </div>
                 
             </div>

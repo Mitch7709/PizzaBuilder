@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PizzaBuilder.Models;
 
 namespace PizzaBuilder.Data
 {
-    public class AppDBContext:DbContext
+    public class AppDBContext:IdentityDbContext
     {
         public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
         {

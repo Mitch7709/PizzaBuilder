@@ -1,17 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using PizzaBuilder.Data;
 using PizzaBuilder.Services;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<AppDBContext>();
+
 //Services configuration
 builder.Services.AddScoped<IPizzaService, PizzaService>();
-
-//Authentication and Authorization
-
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -30,6 +31,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
+app.MapRazorPages();
 
 app.UseAuthorization();
 
