@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using PizzaBuilder.Data;
@@ -21,12 +22,14 @@ namespace PizzaBuilder.Services
         #region Create
         public async Task AddNewPizza(CreatePizzaVM data)
         {
+            
+            
             var newPizza = new Pizza()
             {
                 SizeID = data.SizeId,
                 CrustID = data.CrustId,
                 Quantity = data.Quantity,
-                Base_Price = data.Base_Price,
+                Total_Price = data.Base_Price,
                 Instructions = data.Instructions
 
             };
@@ -128,7 +131,7 @@ namespace PizzaBuilder.Services
                 //dbPizza.Size = data.Size;
                 dbPizza.Quantity = data.Quantity;
                 dbPizza.CrustID = dbPizza.CrustID;
-                dbPizza.Base_Price = data.Base_Price;
+                dbPizza.Total_Price = data.Base_Price;
                 dbPizza.Instructions = data.Instructions;
             }
 
@@ -165,5 +168,6 @@ namespace PizzaBuilder.Services
                 await _context.SaveChangesAsync();
             }
         }
+
     }
 }

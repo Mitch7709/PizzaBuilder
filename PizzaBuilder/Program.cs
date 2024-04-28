@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using PizzaBuilder.Data;
 using PizzaBuilder.Services;
 using Microsoft.AspNetCore.Identity;
+using PizzaBuilder.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 

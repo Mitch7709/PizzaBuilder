@@ -16,7 +16,7 @@ namespace PizzaBuilder.Models
         public int Quantity { get; set; }
 
         [DisplayName("Price")]
-        public double Base_Price { get; set; }
+        public double Total_Price { get; set; }
 
         public int CrustID { get; set; }
         [ForeignKey("CrustID")]

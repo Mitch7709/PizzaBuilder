@@ -112,5 +112,15 @@ namespace PizzaBuilder.Controllers
             await _service.EditPizza(pizza);
             return RedirectToAction(nameof(Orders));
         }
+
+        //GET: Pizza/Delete/1
+        public async Task<IActionResult> Delete(int id)
+        {
+            var pizzaDetails = await _service.GetPizzaById(id);
+            if (pizzaDetails == null) return View("NotFound");
+            await _service.DeletePizza(id);
+
+            return RedirectToAction(nameof(Orders));
+        }
     }
 }
